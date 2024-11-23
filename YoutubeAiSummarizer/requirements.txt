@@ -1,0 +1,9 @@
+streamlit
+beautifulsoup4
+requests
+youtube-transcript-api
+pytube
+deep-translator
+gtts
+transformers
+gensim

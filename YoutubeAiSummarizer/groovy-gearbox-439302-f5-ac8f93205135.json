@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "groovy-gearbox-439302-f5",
+  "private_key_id": "ac8f93205135ee21d5bf7da650e054b8dfcc7d6c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCXdTZqOcyYr+0I\n2j4weDNnY60/m35V0p1Av8bvVwP7QQvdNDx3TgJwoE89KTd7H234iPihQ2SeQiOV\nvd/IBVT2MlZc4n/qcoqRIaDaZvjf+cO2CnB+jpZeBuaI21rgFFPu6IEq3swWm3nO\n6Xzl1hh0qGOD+wQhU7v8ltswocN+ApItme7h6ePsiL0N411UXo+7a+kzXFRZkdzL\nR2gRoE6weclKzK9gsKB9X4D+D9uIt2nvFPBnZECIDzamamO02RDca5XNmdXmY1Ht\nO+XABegoYvdIhX0zp3LR76Qr7V/rsZ7RL9FoCA8sczb5He1ofEwFkaeGo1CKFUjE\n8EX6E01ZAgMBAAECggEACvtxZbxJWQSf/1K/NymuxS9YWOLNbeuEF7WVjHXGtgww\n+sob8fparsV6XBY2GGv+lUqt8pg4fnQ6cH7F2v2t+93JtC7/9PqiEGTRQnznIhXS\nKovxEnAu4uRaXi/qU+dixab0yhcWfTOACTBA1vPnro/Q4CP5AvH3e9jezb+GYBzd\njHq6k32bT94ObEVaLHu4n8LfllrgSf9Cvh2WzbdVhV9MyfLli0roP6IPRbnVfMFa\nxu1N34BtjfWLSU1/jzBNuh7WoHETeBVpTmW14hdqCmYWliMV2Yn8aPwtxkiohZIT\n+DmbKOhAwQmB2PoRnoS2hiKW0/Cf9mYGO9xABVuvrQKBgQDJeZKFWaes/DBBbyJx\nOo22VyWBa49VWVLKsF2f8ifjhyw3rEnwSY6oJcG9dvigVqcRJun772H7KUDvNqmZ\niGbrLpxy7nRNeARmwg42XTfkyWl1c/+5piR/3LGeOUQ/l6DuDrrWADtZQ535Eebr\nO/RtfSNOkurS12z6thmEtiGS1QKBgQDAcmYkPyZzP7tX2sKarvtKErNpqsi++RZ6\nuZmBMbPspuG4Gwz9M9k/EX/4G8TvpT+xep7VYK4QG1u7Oi5O43QT3qF7CNvedrNH\nGd3x+zeOuSJsTQ8QaByC6qbdaEvb4uK2u2C4IPNLyk0I8JRZNiRuDcKr1MdcNhOj\n9QkV/7NqdQKBgFyDK2l6Aolm/418R3dwqJO6rmkgB5/sNR0HIOaJ3hEXB5HE1eq1\nDAFf3Pdvwrh1MZ+pm7VodThL+Bofon7yaDfDnmkT32mXG4ZHwxjpcvnmFjuteRY5\nGPdxUknSB+mfaXEGaHpNfvL9HnO46azISfNgi67PvW31J4Bzz4Hl08LFAoGBAJ+D\ns2pD9ej9YJn3t+pjM+M4EQJ7Dx5MdPeQs85ElnCH+vyRX3jY6y+9n6bVza0d+edw\nTgtrsZukMarFFPFK00JM/OhwdV62YO+EX1Vd97UTe5btYJkm0sspGNrYwlgmfekc\n85Rrq36c1rGcSDqSCCw4t62aFw01vZ3fU4KqidqpAoGBAKiXFFjl0LLFQRiZQwvm\n8X4jdJleo6qP5KsBzmRUzFQ67+0c/2arKCoJrtFkPBiTnUGgM0kz8/FxrDQRG1WV\n/CQsFt5tFdtfq4wbJA+MP5qxUBPwZ+I0Wlk6/XAWvw1yDXR4DqydaEOpufrzMkAV\nQirtiYVMFTlCJGT+JWCZhK9j\n-----END PRIVATE KEY-----\n",
+  "client_email": "speech-to-text-service-account@groovy-gearbox-439302-f5.iam.gserviceaccount.com",
+  "client_id": "113019244561047977267",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-to-text-service-account%40groovy-gearbox-439302-f5.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

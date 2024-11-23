@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Summarizer</title>
+    <style>
+        /* Gradient changing background */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Sleek container */
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(0.95);
+            animation: popIn 0.5s ease forwards;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Heading */
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Input and button styles */
+        input, button {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        input {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+
+        input:focus {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .summary, .error {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .summary {
+            background: #e3fcef;
+            color: #2c7a7b;
+        }
+
+        .error {
+            background: #ffe6e6;
+            color: #d9534f;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cursor animation */
+        body, button {
+            cursor: url('https://cdn-icons-png.flaticon.com/512/892/892478.png'), auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Video Summarizer</h1>
+        <form id="videoForm">
+            <input type="text" id="videoUrl" placeholder="Enter YouTube video URL" required>
+            <button type="submit">Summarize</button>
+        </form>
+
+        <div class="summary" id="summary" style="display:none;"></div>
+        <div class="error" id="error" style="display:none;"></div>
+    </div>
+
+    <script>
+        document.getElementById('videoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const videoUrl = document.getElementById('videoUrl').value;
+
+            fetch('/summarize', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `video_url=${encodeURIComponent(videoUrl)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.summary) {
+                    document.getElementById('summary').style.display = 'block';
+                    document.getElementById('summary').innerText = data.summary;
+                    document.getElementById('error').style.display = 'none';
+                } else {
+                    document.getElementById('error').style.display = 'block';
+                    document.getElementById('error').innerText = data.error || 'An error occurred.';
+                    document.getElementById('summary').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').innerText = 'An error occurred: ' + error.message;
+                document.getElementById('summary').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
