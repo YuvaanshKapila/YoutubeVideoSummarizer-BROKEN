@@ -1,59 +1,72 @@
-# YouTube AI Summarizer
+# AI Video Processor
 
-A Flask-based web application that generates concise summaries from YouTube videos using AI-driven natural language processing. Powered by OpenAI and deployed with Firebase for secure authentication and hosting.
+A powerful Streamlit application that extracts YouTube video transcripts, generates AI-powered summaries, and provides translation and audio generation capabilities.
 
 ## Features
 
-- Extracts transcripts from YouTube videos
-- Generates smart summaries using AI
-- Interactive web interface built with Flask
-- Firebase authentication and hosting integration
+- **YouTube Transcript Extraction**: Automatically extracts transcripts from YouTube videos
+- **Multiple Summarization Algorithms**: 
+  - Sumy LexRank (graph-based)
+  - NLTK (frequency-based)
+  - Spacy (linguistic analysis)
+  - T5 Transformer (neural abstractive)
+- **Multi-language Translation**: Support for 12+ languages
+- **Audio Generation**: Convert summaries to speech
+- **Clean UI**: Modern, responsive interface
 
-## Project Structure
+## Installation
 
-├── app.py # Main Flask application ├── templates/ # HTML templates ├── static/ # Static assets (CSS, JS) ├── requirements.txt # Python dependencies ├── groovy-gearbox-*.json # Firebase service account key ├── path_to_your_service_account_key.json # Placeholder for secret key ├── pycache/ # Python cache files
+1. **Clone or download the files**
+2. **Install Python dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
+3. **Install Spacy language model:**
+   ```bash
+   python -m spacy download en_core_web_sm
+   ```
 
-## Setup Instructions
+## Usage
 
-### Prerequisites
+1. **Run the application:**
+   ```bash
+   streamlit run app.py
+   ```
 
-- Python 3.11+ (recommended)
-- A Firebase project (for hosting and authentication)
-- OpenAI API key
+2. **Enter a YouTube URL** in the input field
+3. **Choose summarization settings:**
+   - Method: Extractive or Abstractive (T5)
+   - Algorithm: Sumy, NLTK, or Spacy
+   - Summary length ratio
+4. **Configure output settings:**
+   - Target language for translation
+   - Audio generation
+   - Full transcript display
+5. **Click "Process Video"** to start analysis
 
-### Installation
+## Troubleshooting
 
-1. Clone the repository:
-git clone https://github.com/YuvaanshKapila/YoutubeVideoSummarizer.git cd YoutubeVideoSummarizer
+### Common Issues
 
+1. **Transcript not available**: Some videos have disabled captions or no transcript available
+2. **Spacy model missing**: Run `python -m spacy download en_core_web_sm`
+3. **T5 model loading**: The first run may take time to download the T5 model
 
-2. Set up a virtual environment (optional but recommended):
-python -m venv venv source venv/bin/activate # On Windows: venv\Scripts\activate
+### Video Requirements
 
+- Video must have captions/transcripts enabled
+- Public videos work best
+- Some private or restricted videos may not work
 
-3. Install dependencies:
-pip install -r requirements.txt
+## Dependencies
 
-
-4. Add your service account key:
-Replace `path_to_your_service_account_key.json` with your actual Firebase key file.
-
-5. Set your API keys and configurations as environment variables or a `.env` file.
-
-### Running Locally
-
-Start the Flask app with:
-
-python app.py
-
-
-Access it at `http://localhost:5000`.
-
-## Deployment
-
-You can deploy on platforms like Render or Firebase Hosting. Be sure to set Python version compatibility and keep credentials secure.
+- **Core**: streamlit, youtube-transcript-api, beautifulsoup4
+- **NLP**: nltk, spacy, transformers, sumy
+- **Translation**: deep-translator
+- **Audio**: gTTS
+- **ML**: torch
 
 ## License
 
-This project is licensed under the MIT
+This project is open source and available under the MIT License.
