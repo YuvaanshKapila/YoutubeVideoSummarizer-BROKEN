@@ -1,59 +1,36 @@
-# YouTube AI Summarizer
+# AI Video Processor
 
-A Flask-based web application that generates concise summaries from YouTube videos using AI-driven natural language processing. Powered by OpenAI and deployed with Firebase for secure authentication and hosting.
+This repository contains a simplified Streamlit application that can:
 
-## Features
+* Fetch the transcript from any public YouTube video (manual or auto-generated)
+* Produce an extractive **or** abstractive (T5-based) summary
+* Optionally translate the summary into 10+ languages
+* Optionally generate an audio version of the summary using gTTS
 
-- Extracts transcripts from YouTube videos
-- Generates smart summaries using AI
-- Interactive web interface built with Flask
-- Firebase authentication and hosting integration
+---
 
-## Project Structure
+## Quick start
 
-├── app.py # Main Flask application ├── templates/ # HTML templates ├── static/ # Static assets (CSS, JS) ├── requirements.txt # Python dependencies ├── groovy-gearbox-*.json # Firebase service account key ├── path_to_your_service_account_key.json # Placeholder for secret key ├── pycache/ # Python cache files
+1.  **Install dependencies**
 
-
-## Setup Instructions
-
-### Prerequisites
-
-- Python 3.11+ (recommended)
-- A Firebase project (for hosting and authentication)
-- OpenAI API key
-
-### Installation
-
-1. Clone the repository:
-git clone https://github.com/YuvaanshKapila/YoutubeVideoSummarizer.git cd YoutubeVideoSummarizer
-
-
-2. Set up a virtual environment (optional but recommended):
-python -m venv venv source venv/bin/activate # On Windows: venv\Scripts\activate
-
-
-3. Install dependencies:
+```bash
 pip install -r requirements.txt
+python -m spacy download en_core_web_sm  # if the app does not download it automatically
+```
 
+2.  **Run the app**
 
-4. Add your service account key:
-Replace `path_to_your_service_account_key.json` with your actual Firebase key file.
+```bash
+streamlit run app.py
+```
 
-5. Set your API keys and configurations as environment variables or a `.env` file.
+3.  **Open your browser** – Streamlit will show you the local URL (usually `http://localhost:8501`).
 
-### Running Locally
+---
 
-Start the Flask app with:
+## Notes
 
-python app.py
-
-
-Access it at `http://localhost:5000`.
-
-## Deployment
-
-You can deploy on platforms like Render or Firebase Hosting. Be sure to set Python version compatibility and keep credentials secure.
-
-## License
-
-This project is licensed under the MIT
+* The app tries multiple fallback strategies (manual English captions, auto-generated captions) before giving up on a transcript.
+* Some videos disable transcripts entirely; in that case the app will show an error.
+* Abstractive summarisation relies on a small T5 model (`t5-base`). For large inputs the app truncates to 3,000 characters to avoid GPU/CPU memory issues.
+* Audio generation is limited to ~1,500 characters to keep processing fast.
