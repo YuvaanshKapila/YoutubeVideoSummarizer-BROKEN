@@ -1,0 +1,11 @@
+streamlit
+requests
+beautifulsoup4
+youtube-transcript-api
+deep_translator
+gTTS
+nltk
+spacy
+torch
+transformers
+sumy
