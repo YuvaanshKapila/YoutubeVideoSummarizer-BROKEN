@@ -1,59 +1,60 @@
-# YouTube AI Summarizer
+# AI Video Processor
 
-A Flask-based web application that generates concise summaries from YouTube videos using AI-driven natural language processing. Powered by OpenAI and deployed with Firebase for secure authentication and hosting.
+A powerful Streamlit application for extracting, summarizing, and translating YouTube video transcripts using advanced NLP techniques.
 
 ## Features
 
-- Extracts transcripts from YouTube videos
-- Generates smart summaries using AI
-- Interactive web interface built with Flask
-- Firebase authentication and hosting integration
+- **Automatic Transcript Extraction**: Retrieves YouTube video transcripts with multiple fallback methods
+- **Multiple Summarization Algorithms**: 
+  - Sumy LexRank (graph-based)
+  - NLTK frequency analysis
+  - spaCy NLP processing
+  - T5 transformer (abstractive)
+- **Multi-language Support**: Translate summaries to 12+ languages
+- **Audio Generation**: Text-to-speech for summaries
+- **Clean, Professional UI**: No clutter, focused on functionality
 
-## Project Structure
+## Installation
 
-├── app.py # Main Flask application ├── templates/ # HTML templates ├── static/ # Static assets (CSS, JS) ├── requirements.txt # Python dependencies ├── groovy-gearbox-*.json # Firebase service account key ├── path_to_your_service_account_key.json # Placeholder for secret key ├── pycache/ # Python cache files
-
-
-## Setup Instructions
-
-### Prerequisites
-
-- Python 3.11+ (recommended)
-- A Firebase project (for hosting and authentication)
-- OpenAI API key
-
-### Installation
-
-1. Clone the repository:
-git clone https://github.com/YuvaanshKapila/YoutubeVideoSummarizer.git cd YoutubeVideoSummarizer
-
-
-2. Set up a virtual environment (optional but recommended):
-python -m venv venv source venv/bin/activate # On Windows: venv\Scripts\activate
-
-
-3. Install dependencies:
+1. Clone or download the files
+2. Install dependencies:
+```bash
 pip install -r requirements.txt
+```
 
+3. Download spaCy English model:
+```bash
+python -m spacy download en_core_web_sm
+```
 
-4. Add your service account key:
-Replace `path_to_your_service_account_key.json` with your actual Firebase key file.
+## Usage
 
-5. Set your API keys and configurations as environment variables or a `.env` file.
+1. Run the application:
+```bash
+streamlit run video_processor.py
+```
 
-### Running Locally
+2. Enter a YouTube URL
+3. Configure summarization settings in the sidebar
+4. Click "Process Video" to extract and summarize
 
-Start the Flask app with:
+## Fixed Issues
 
-python app.py
+- **YouTube Transcript API**: Fixed incorrect API usage and added proper error handling
+- **Multiple Fallback Methods**: Implemented robust transcript extraction with language detection
+- **Clean UI**: Removed emojis and created professional interface
+- **Better Error Messages**: Clear feedback when transcripts are unavailable
+- **Improved Performance**: Optimized model loading and text processing
 
+## Requirements
 
-Access it at `http://localhost:5000`.
+- Python 3.8+
+- All packages listed in requirements.txt
+- Internet connection for YouTube access and translation services
 
-## Deployment
+## Troubleshooting
 
-You can deploy on platforms like Render or Firebase Hosting. Be sure to set Python version compatibility and keep credentials secure.
-
-## License
-
-This project is licensed under the MIT
+If you encounter transcript extraction issues:
+- Ensure the video has captions/transcripts enabled
+- Try videos from different channels
+- Check that the YouTube URL is valid and accessible
