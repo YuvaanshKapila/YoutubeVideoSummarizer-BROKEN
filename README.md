@@ -1,7 +1,7 @@
 # YouTube Transcript Summarizer
 
 A clean, efficient tool that extracts YouTube video transcripts and generates intelligent summaries using AI-powered natural language processing.
-
+https://youtubevideosummarizer-broken-djhdlb4t7kfmy6bdsvzxda.streamlit.app/
 ## Features
 
 - **Automatic Transcript Extraction**: Retrieves transcripts from YouTube videos automatically
@@ -153,3 +153,4 @@ Feel free to submit issues, feature requests, or pull requests to improve the to
 ## License
 
 This project is open source and available under the MIT License.
+
