@@ -1,9 +1,10 @@
+streamlit
+pyrebase4
 beautifulsoup4
 requests
 youtube-transcript-api
 deep-translator
 gtts
-streamlit
 nltk
 spacy
 sumy
